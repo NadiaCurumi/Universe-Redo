@@ -2,9 +2,10 @@ package pgdp.universe;
 
 public abstract class Mammal extends Animal implements Viviparous {
 
-    protected final byte numberOfTeats = 100;
+    protected final byte numberOfTeats;
     public Mammal(String name, Sex sex, byte numberOfTeats) {
         super(name, sex);
+        this.numberOfTeats = numberOfTeats;
     }
 
     @Override
@@ -12,7 +13,7 @@ public abstract class Mammal extends Animal implements Viviparous {
         return false;
     }
     public void suckle(){
-        System.out.println(toString() + ConsoleOutputs.IS_SUCKLING);
+        System.out.println(this.toString() + ConsoleOutputs.IS_SUCKLING);
     }
 
     @Override
