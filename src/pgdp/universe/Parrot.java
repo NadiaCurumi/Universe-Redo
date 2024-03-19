@@ -24,9 +24,5 @@ public class Parrot extends Bird {
         return super.toString();
     }
 
-    @Override
-    public void fly() {
-        super.fly();
-    }
 
 }
