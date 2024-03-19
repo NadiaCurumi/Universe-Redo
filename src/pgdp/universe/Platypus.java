@@ -1,13 +1,24 @@
 package pgdp.universe;
 
 public class Platypus extends Mammal implements Oviparous{
-    public Platypus(String name, Sex sex, byte numberOfTeats) {
-        super(name, sex, numberOfTeats);
+
+
+    public Platypus(String name, Sex sex) {
+        super(name, sex, (byte) 0);
     }
+
 
     @Override
     public boolean breedWith(Animal animal) {
-        return super.breedWith(animal);
+        if (animal instanceof Platypus p && sex != animal.sex){
+            if (sex == Sex.FEMALE){
+                layEgg();
+            }else {
+                p.layEgg();
+            }
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -24,4 +35,5 @@ public class Platypus extends Mammal implements Oviparous{
     public void layEgg() {
         Oviparous.super.layEgg();
     }
+
 }
